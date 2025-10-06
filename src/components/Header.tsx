@@ -1,10 +1,19 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, ShoppingCart, User } from 'lucide-react';
+import { Search, ShoppingCart, User, LogOut } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { useState } from 'react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export default function Header() {
   const { itemCount } = useCart();
+  const { user, isAuthenticated, isAdmin, logout } = useAuth();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -22,7 +31,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="text-2xl font-heading font-bold tracking-wide">
-            FOREVER.
+            KAAपड.
           </Link>
 
           {/* Navigation */}
@@ -39,6 +48,11 @@ export default function Header() {
             <Link to="/contact" className="text-sm font-medium hover:text-accent transition-colors">
               CONTACT
             </Link>
+            {isAuthenticated && isAdmin() && (
+              <Link to="/admin" className="text-sm font-medium hover:text-accent transition-colors">
+                ADMIN PANEL
+              </Link>
+            )}
           </nav>
 
           {/* Right Actions */}
@@ -59,10 +73,52 @@ export default function Header() {
               </div>
             </form>
 
-            {/* User */}
-            <button className="p-2 hover:bg-secondary rounded-full transition-colors">
-              <User className="h-5 w-5" />
-            </button>
+            {/* User Menu */}
+            {isAuthenticated ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="p-2 hover:bg-secondary rounded-full transition-colors">
+                  <User className="h-5 w-5" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <div className="px-2 py-1.5 text-sm font-medium">{user?.name}</div>
+                  <DropdownMenuSeparator />
+                  {isAdmin() ? (
+                    <DropdownMenuItem onClick={() => navigate('/admin')}>
+                      Admin Dashboard
+                    </DropdownMenuItem>
+                  ) : (
+                    <DropdownMenuItem onClick={() => navigate('/profile')}>
+                      My Profile
+                    </DropdownMenuItem>
+                  )}
+                  <DropdownMenuItem onClick={() => {
+                    logout();
+                    navigate('/');
+                  }}>
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Logout
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="p-2 hover:bg-secondary rounded-full transition-colors">
+                  <User className="h-5 w-5" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={() => navigate('/login')}>
+                    Login
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => navigate('/register')}>
+                    Register
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => navigate('/admin/login')}>
+                    Admin Login
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
 
             {/* Cart */}
             <Link to="/cart" className="relative p-2 hover:bg-secondary rounded-full transition-colors">

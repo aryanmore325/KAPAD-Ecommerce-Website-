@@ -74,26 +74,26 @@ export default function Contact() {
               <h3 className="font-medium mb-1">Address</h3>
               <p className="text-muted-foreground">
                 123 Fashion Street<br />
-                New York, NY 10001<br />
-                United States
+                CSMT,DY 400001<br />
+                MUMBAI , INDIA
               </p>
             </div>
             
             <div>
               <h3 className="font-medium mb-1">Email</h3>
-              <p className="text-muted-foreground">contact@forever.com</p>
+              <p className="text-muted-foreground">contact@KAAपड.com</p>
             </div>
             
             <div>
               <h3 className="font-medium mb-1">Phone</h3>
-              <p className="text-muted-foreground">+1 (555) 123-4567</p>
+              <p className="text-muted-foreground">+91 987-654-3210</p>
             </div>
             
             <div>
               <h3 className="font-medium mb-1">Business Hours</h3>
               <p className="text-muted-foreground">
-                Monday - Friday: 9:00 AM - 6:00 PM<br />
-                Saturday: 10:00 AM - 4:00 PM<br />
+                Monday - Friday: 9:00 AM - 10:00 PM<br />
+                Saturday: 10:00 AM - 6:00 PM<br />
                 Sunday: Closed
               </p>
             </div>

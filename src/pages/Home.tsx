@@ -1,7 +1,8 @@
 import Hero from '@/components/Hero';
 import ProductCard from '@/components/ProductCard';
-import { products } from '@/lib/data';
+import { products } from '@/lib/data'; // Assuming this provides your product list
 import { Link } from 'react-router-dom';
+import { RefreshCw, Repeat, Headset } from 'lucide-react'; // ICONS IMPORTED
 
 export default function Home() {
   const latestProducts = products.slice(0, 10);
@@ -20,7 +21,7 @@ export default function Home() {
             <span className="w-12 h-0.5 bg-border"></span>
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.
+            KAAपड – more than clothes, it’s comfort, confidence, and culture.Dress the way you feel, every single day.
           </p>
         </div>
 
@@ -57,19 +58,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Policy Section */}
+      {/* Policy Section - ICONS ADDED */}
       <section className="bg-secondary">
         <div className="container mx-auto px-4 py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            
+            {/* 1. Easy Exchange Policy */}
             <div>
+              <RefreshCw className="w-6 h-6 mx-auto mb-3 text-primary" />
               <h3 className="font-medium mb-2">Easy Exchange Policy</h3>
               <p className="text-sm text-muted-foreground">We offer hassle free exchange policy</p>
             </div>
+            
+            {/* 2. 7 Days Return Policy */}
             <div>
+              <Repeat className="w-6 h-6 mx-auto mb-3 text-primary" />
               <h3 className="font-medium mb-2">7 Days Return Policy</h3>
               <p className="text-sm text-muted-foreground">We provide 7 days free return policy</p>
             </div>
+            
+            {/* 3. Best Customer Support */}
             <div>
+              <Headset className="w-6 h-6 mx-auto mb-3 text-primary" />
               <h3 className="font-medium mb-2">Best Customer Support</h3>
               <p className="text-sm text-muted-foreground">We provide 24/7 customer support</p>
             </div>

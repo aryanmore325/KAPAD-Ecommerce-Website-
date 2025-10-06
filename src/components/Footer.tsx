@@ -5,9 +5,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="font-heading font-bold text-2xl mb-4">FOREVER.</h3>
+            <h3 className="font-heading font-bold text-2xl mb-4">KAAपड.</h3>
             <p className="text-muted-foreground text-sm">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              KAAपड – more than clothes, it’s comfort, confidence, and culture.Dress the way you feel, every single day.
             </p>
           </div>
 
@@ -26,8 +26,8 @@ export default function Footer() {
           <div>
             <h4 className="font-medium mb-4">GET IN TOUCH</h4>
             <ul className="space-y-2 text-muted-foreground text-sm">
-              <li>+1-000-000-0000</li>
-              <li>contact@forever.com</li>
+              <li>+91-987-456-3210</li>
+              <li>contact@KAAपड.com</li>
             </ul>
           </div>
 
@@ -55,7 +55,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground text-sm">
-            Copyright 2024 © forever.com - All Rights Reserved.
+            Copyright 2025 © KAAपड..com - All Rights Reserved.
           </p>
         </div>
       </div>

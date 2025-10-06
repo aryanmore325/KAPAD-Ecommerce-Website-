@@ -1,10 +1,49 @@
 import { useCart } from '@/contexts/CartContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import { Trash2, Plus, Minus } from 'lucide-react';
 
 export default function Cart() {
   const { cartItems, removeFromCart, updateQuantity, totalAmount, clearCart } = useCart();
+  const navigate = useNavigate(); // Hook for programmatic navigation
 
+  // Mock checkout function
+  const handleCheckout = () => {
+    // 1. Client-side validation (e.g., check if cart is empty)
+    if (cartItems.length === 0) {
+      alert("Your cart is empty. Please add items before proceeding to checkout.");
+      return;
+    }
+
+    // 2. Prepare order data (mock data for demonstration)
+    const orderDetails = {
+      items: cartItems.map(item => ({
+        id: item.id,
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price,
+        size: item.selectedSize
+      })),
+      subtotal: totalAmount.toFixed(2),
+      shipping: 10.00,
+      total: (totalAmount + 10).toFixed(2),
+      // In a real app, you'd add: promoCode, user details, etc.
+    };
+
+    console.log("Starting checkout process with order details:", orderDetails);
+
+    // 3. Navigate to a dedicated checkout page.
+    // In a real application, this is where you'd send order data to a backend
+    // and then redirect to a payment gateway or a detailed checkout form.
+    
+    // For this example, we'll navigate to a mock '/checkout' route.
+    // You would need to create a <Checkout /> component for this route.
+    navigate('/checkout', { state: { order: orderDetails } });
+    
+    // In a real system, you might clear the cart only *after* successful payment.
+    // clearCart(); 
+  };
+  
+  // Existing 'Cart Empty' state...
   if (cartItems.length === 0) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
@@ -20,13 +59,15 @@ export default function Cart() {
     );
   }
 
+  // Existing Cart content...
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-2xl font-heading font-semibold mb-8">Shopping Cart</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Cart Items */}
+        {/* Cart Items (No changes to this section) */}
         <div className="lg:col-span-2">
+          {/* ... (Existing logic for displaying cart items and quantity updates) ... */}
           <div className="border border-border">
             {/* Header */}
             <div className="grid grid-cols-12 gap-4 p-4 border-b border-border font-medium text-sm">
@@ -92,8 +133,7 @@ export default function Cart() {
             Clear Cart
           </button>
         </div>
-
-        {/* Cart Summary */}
+        {/* Cart Summary (Updated 'PROCEED TO CHECKOUT' button) */}
         <div className="lg:col-span-1">
           <div className="border border-border p-6">
             <h2 className="font-medium mb-4">Cart Total</h2>
@@ -113,7 +153,11 @@ export default function Cart() {
               </div>
             </div>
 
-            <button className="w-full py-3 bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors">
+            {/* ATTACHED handleCheckout TO onClick */}
+            <button 
+              onClick={handleCheckout} 
+              className="w-full py-3 bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+            >
               PROCEED TO CHECKOUT
             </button>
           </div>
