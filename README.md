@@ -1,4 +1,4 @@
-🛍️ KAPAD Shop - E-commerce Website
+🛍️ KAPAD Shop - E-commerce Website 🚀
 KAPAD Shop is a modern, full-featured e-commerce platform built using React and TypeScript, following current industry best practices and focusing on a responsive, user-friendly shopping experience. This project was built from scratch to demonstrate mastery of full-stack principles, from component design to RESTful API integration and secure payment processing.
 
 🚀 Live Demo
@@ -20,7 +20,7 @@ Secure Checkout: The Checkout process is designed to integrate with a modern pay
 Tokenization & Security: Implementation focuses on passing secure payment tokens (not raw card data) to a hypothetical server endpoint, ensuring PCI compliance principles are followed.
 
 3. State Management & Data Flow
-Centralized State: Uses the React Context API for global state (Auth, Cart) and React Query (TanStack Query) for server-side state (Products). This combination provides robust caching, automatic data synchronization, and efficient data handling, reducing unnecessary network calls.
+Centralized State: Uses the React Context API for global state (Auth, Cart) and React Query (TanStack Query) for server-side state (caching, automatic data synchronization).
 
 High Code Quality: The entire project is written in TypeScript to ensure type safety, reduce runtime errors, and enhance maintainability, showcasing a commitment to professional code standards.
 
@@ -30,13 +30,9 @@ Responsive Design: Fully optimized for mobile, tablet, and desktop viewing.
 
 Product Catalog: Browse and view detailed product pages.
 
-Bestsellers & Latest Collections: Dedicated sections on the home page for quick navigation.
-
 Cart Management: Add, remove, and update quantities of items in the shopping cart.
 
 Authentication: User login and registration.
-
-Policy Showcase: Clear display of return and exchange policies (7-Day Return, Easy Exchange).
 
 Admin Panel
 Admin Dashboard: Overview of key e-commerce metrics (needs implementation).
@@ -51,8 +47,6 @@ Frontend Framework: React
 Language: TypeScript
 
 Styling: Tailwind CSS (for rapid, utility-first styling)
-
-Routing: React Router DOM
 
 State Management: React Context API & React Query (TanStack Query)
 
