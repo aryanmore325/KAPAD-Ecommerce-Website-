@@ -6,7 +6,7 @@
 
 Experience the application live here:
 
-[**kapad-ecommerce-website-git-main-aryanmore325s-projects.vercel.app**](https://kapad-ecommerce-website-git-main-aryanmore325s-projects.vercel.app)
+https://kapad-ecommerce-website-git-main-aryanmore325s-projects.vercel.app/
 
 ---
 
